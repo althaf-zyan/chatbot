@@ -1,0 +1,17 @@
+services:
+  - type: web
+    name: whatsapp-ai-bot
+    env: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: gunicorn main:app
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.11.9
+      - key: VERIFY_TOKEN
+        sync: false
+      - key: WHATSAPP_TOKEN
+        sync: false
+      - key: PHONE_NUMBER_ID
+        sync: false
+      - key: GROQ_API_KEY
+        sync: false
